@@ -5,7 +5,6 @@ services:
       - RUNNER_TOKEN=${RUNNER_TOKEN}
       - RUNNER_NAME=${RUNNER_NAME}
       - RUNNER_LABELS=${RUNNER_LABELS}
-      - ORG_NAME=${ORG_NAME}
       - REPO_URL=${REPO_URL}
     restart: unless-stopped
     command: sh -c "./config.sh --url ${REPO_URL} --token ${RUNNER_TOKEN} --name ${RUNNER_NAME} --labels ${RUNNER_LABELS} --unattended && ./run.sh"
