@@ -9,7 +9,7 @@ on:
 
 jobs:
   validate-pr-name:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, ftir-edgar2]
     steps:
       - name: Check PR title format
         env:
