@@ -9,7 +9,8 @@ services:
     restart: unless-stopped
     command: sh -c "./config.sh --url ${REPO_URL} --token ${RUNNER_TOKEN} --name ${RUNNER_NAME} --labels ${RUNNER_LABELS} --unattended && ./run.sh"
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+    # volumes:
+    #   - /var/run/docker.sock:/var/run/docker.sock
     deploy:
       resources:
         reservations:

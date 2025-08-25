@@ -12,6 +12,6 @@
 <!-- Please describe the tests that you ran to verify your changes. Provide instructions so we can reproduce. Please also list any relevant details for your test configuration. -->
 
 
-## Aditional information
+## Additional information
 <!-- Provide any additional information that might be useful to the reviewer in evaluating this pull request. This could include performance considerations,design choices, etc. -->
 <!-- Redmine reference -->

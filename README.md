@@ -1,8 +1,8 @@
 # ftir_edgar2_github_action_self_hosted_runner
-Upon PR stante change to **ready**, trigger a jenkins build. The build has to be successfull in order for the check to [x]
+Upon PR state change to **ready**, trigger a Jenkins build. The build has to be successful in order for the check to pass.
 
 ## Why?
-Since we use an on premese instance of Jenkins that is not internet facing, we need the self-hosted runner to be the middle man between GitHub and Jenkins
+Since we use an on premise instance of Jenkins that is not internet facing, we need the self-hosted runner to be the middleman between GitHub and Jenkins
 
 ## TL;TR
 ```bash
