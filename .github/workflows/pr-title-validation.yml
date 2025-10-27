@@ -1,0 +1,24 @@
+name: PR Title Validation
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  validate-pr-name:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check PR title format
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          if [[ ! "$PR_TITLE" =~ ^[0-9]+:.*$ ]]; then
+            echo "❌ PR title is invalid. It must start with a number, followed by ':', and end with a description. Ex: 123: Greetings"
+            echo "Please update the PR title to match the required format."
+            exit 1
+          fi
+          echo "✅ PR title is valid!"
