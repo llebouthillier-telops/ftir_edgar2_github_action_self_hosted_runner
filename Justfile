@@ -19,6 +19,7 @@ help:
 up: _download_actions-runner
     @echo -e "Make sure that the {{YELLOW}}RUNNER_TOKEN{{RESET}} is valid"
     docker compose pull
+    docker compose build
     docker compose --env-file ./.env up -d
 
 # Stop the containers
@@ -35,7 +36,7 @@ rebuild: _download_actions-runner
 _download_actions-runner:
     #!/usr/bin/env bash
 
-    if [ ! -f "actions-runner-linux-x64-2.328.0.tar.gz" ]; then
-        curl -O -L "https://github.com/actions/runner/releases/download/v2.328.0/actions-runner-linux-x64-2.328.0.tar.gz"
-        echo "01066fad3a2893e63e6ca880ae3a1fad5bf9329d60e77ee15f2b97c148c3cd4e ./actions-runner-linux-x64-2.328.0.tar.gz" | sha256sum --check --status
+    if [ ! -f "actions-runner-linux-x64.tar.gz" ]; then
+        curl -o actions-runner-linux-x64.tar.gz -L https://github.com/actions/runner/releases/download/v2.329.0/actions-runner-linux-x64-2.329.0.tar.gz
+        echo "194f1e1e4bd02f80b7e9633fc546084d8d4e19f3928a324d512ea53430102e1d ./actions-runner-linux-x64.tar.gz" | sha256sum --check --status
     fi

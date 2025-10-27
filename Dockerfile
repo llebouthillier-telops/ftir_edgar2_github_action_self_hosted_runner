@@ -12,14 +12,14 @@ RUN apt-get update --yes && \
 RUN useradd -m jenkinsuser
 
 # Add and extract GitHub Actions Runner
-COPY actions-runner-linux-x64-2.328.0.tar.gz /tmp/actions-runner-linux-x64-2.328.0.tar.gz
+COPY actions-runner-linux-x64.tar.gz /tmp/actions-runner-linux-x64.tar.gz
 RUN mkdir -p /opt/actions-runner && \
-    tar -zxvf /tmp/actions-runner-linux-x64-2.328.0.tar.gz -C /opt/actions-runner && \
+    tar -zxvf /tmp/actions-runner-linux-x64.tar.gz -C /opt/actions-runner && \
     cd /opt/actions-runner && \
     chmod 755 *.sh bin/*.sh && \
     chown -R jenkinsuser:jenkinsuser /opt/actions-runner && \
     bash bin/installdependencies.sh && \
-    rm /tmp/actions-runner-linux-x64-2.328.0.tar.gz
+    rm /tmp/actions-runner-linux-x64.tar.gz
 
 RUN apt-get clean && \
     rm -rf /var/cache/apt/archives /var/lib/apt/lists
